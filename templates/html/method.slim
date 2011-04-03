@@ -1,0 +1,18 @@
+section.method
+  h3
+    span.method = name
+    - if parameters.any?
+      | (
+      - for param in parameters
+        span.parameter = param.name
+        = ", " unless param == parameters.last
+      | )
+
+  - if aliases.any?
+    | Aliased as
+    - for name in aliases
+      tt = name
+
+  = xformat comments
+  p
+    a href="foo" Show source

@@ -1,0 +1,29 @@
+<!DOCTYPE html><html><head><title>Class: Nokogiri::XML::Builder</title><link href="style.css" rel="stylesheet"></head><body><article><header><h1>Nokogiri::XML::Builder</h1></header><section><h2>Overview</h2></section><section><h2>Constructor</h2></section><section class="public class"><h2>Class methods</h2><section class="method"><h3><span class="method">with</span>(<span class="parameter">root</span>, <span class="parameter">block</span>)</h3>
+<p>Create a builder with an existing root object.  This is for use when
+you have an existing document that you would like to augment with
+builder methods.  The builder context created will start with the
+given <code>root</code> node.</p>
+
+<p>For example:</p>
+
+<p>doc = Nokogiri::XML(open(&lsquo;somedoc.xml&rsquo;))
+  Nokogiri::XML::Builder.with(doc.at(&lsquo;some_tag&rsquo;)) do |xml|
+    # &hellip; Use normal builder methods here &hellip;
+    xml.awesome # add the &ldquo;awesome&rdquo; tag below &ldquo;some_tag&rdquo;
+  end</p>
+<p><a href="foo">Show source</a></p></section></section><section class="public instance"><h2>Instance methods</h2><section class="method"><h3><span class="method">arity</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">arity=</span>(<span class="parameter"></span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">cdata</span>(<span class="parameter">string</span>)</h3>
+<p>Create a CDATA Node with content of <code>string</code></p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">context</span></h3><p>A context object for use when the block has no arguments</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">context=</span>(<span class="parameter"></span>)</h3><p>A context object for use when the block has no arguments</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">doc</span></h3><p>The current Document object being built</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">doc=</span>(<span class="parameter"></span>)</h3><p>The current Document object being built</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">method_missing</span>(<span class="parameter">method</span>, <span class="parameter">args</span>, <span class="parameter">block</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">parent</span></h3><p>The parent of the current node being built</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">parent=</span>(<span class="parameter"></span>)</h3><p>The parent of the current node being built</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">text</span>(<span class="parameter">string</span>)</h3>
+<p>Create a Text Node with content of <code>string</code></p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">to_xml</span>(<span class="parameter">args</span>)</h3>
+<p>Convert this Builder object to XML</p>
+<p><a href="foo">Show source</a></p></section></section></article></body></html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html><html><head><title>Class: Set</title><link href="style.css" rel="stylesheet"></head><body><article><header><h1>Set</h1></header><section><h2>Overview</h2></section><section><h2>Constants</h2></section><section><h2>Constructor</h2></section><section class="public instance"><h2>Instance methods</h2><section class="method"><h3><span class="method">add</span>(<span class="parameter">o</span>)</h3><p>Adds the given object to the set and returns self.  Use <code>merge</code> to
+add many elements at once.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">add?</span>(<span class="parameter">o</span>)</h3><p>Adds the given object to the set and returns self.  If the
+object is already in the set, returns nil.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">classify</span></h3><p>Classifies the set by the return value of the given block and
+returns a hash of {value =&gt; set of elements} pairs.  The block is
+called once for each element of the set, passing the element as
+parameter.</p>
+
+<p>e.g.:
+     require &lsquo;set&rsquo;
+    files = Set.new(Dir.glob(&ldquo;*.rb&rdquo;))
+    hash = files.classify { |f| File.mtime(f).year }
+    p hash    # =&gt; {2000=&gt;#&lt;Set: {&ldquo;a.rb&rdquo;, &ldquo;b.rb&rdquo;}&gt;,
+              #     2001=&gt;#&lt;Set: {&ldquo;c.rb&rdquo;, &ldquo;d.rb&rdquo;, &ldquo;e.rb&rdquo;}&gt;,
+              #     2002=&gt;#&lt;Set: {&ldquo;f.rb&rdquo;}&gt;}</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">clear</span></h3><p>Removes all elements and returns self.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">collect!</span></h3><p>Replaces the elements with ones returned by collect().</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">delete</span>(<span class="parameter">o</span>)</h3><p>Deletes the given object from the set and returns self.  Use <code>subtract</code> to
+delete many items at once.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">delete?</span>(<span class="parameter">o</span>)</h3><p>Deletes the given object from the set and returns self.  If the
+object is not in the set, returns nil.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">delete_if</span></h3><p>Deletes every element of the set for which block evaluates to
+true, and returns self.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">divide</span>(<span class="parameter">func</span>)</h3><p>Divides the set into a set of subsets according to the commonality
+defined by the given block.</p>
+
+<p>If the arity of the block is 2, elements o1 and o2 are in common
+if block.call(o1, o2) is true.  Otherwise, elements o1 and o2 are
+in common if block.call(o1) == block.call(o2).</p>
+
+<p>e.g.:
+     require &lsquo;set&rsquo;
+    numbers = Set[1, 3, 4, 6, 9, 10, 11]
+    set = numbers.divide { |i,j| (i - j).abs == 1 }
+    p set     # =&gt; #&lt;Set: {#&lt;Set: {1}&gt;,
+              #            #&lt;Set: {11, 9, 10}&gt;,
+              #            #&lt;Set: {3, 4}&gt;,
+              #            #&lt;Set: {6}&gt;}&gt;</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">each</span></h3><p>Calls the given block once for each element in the set, passing
+the element as parameter.  Returns an enumerator if no block is
+given.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">empty?</span></h3><p>Returns true if the set contains no elements.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">eql?</span>(<span class="parameter">o</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">flatten</span></h3><p>Returns a new set that is a copy of the set, flattening each
+containing set recursively.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">flatten!</span></h3><p>Equivalent to Set#flatten, but replaces the receiver with the
+result in place.  Returns nil if no modifications were made.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">freeze</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">hash</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">include?</span>(<span class="parameter">o</span>)</h3><p>Returns true if the set contains the given object.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">inspect</span></h3><p>Returns a string containing a human-readable representation of the
+set. (&ldquo;#&lt;Set: {element1, element2, &hellip;}&gt;&rdquo;)</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">keep_if</span></h3><p>Deletes every element of the set for which block evaluates to
+false, and returns self.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">merge</span>(<span class="parameter">enum</span>)</h3><p>Merges the elements of the given enumerable object to the set and
+returns self.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">pretty_print</span>(<span class="parameter">pp</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">pretty_print_cycle</span>(<span class="parameter">pp</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">proper_subset?</span>(<span class="parameter">set</span>)</h3><p>Returns true if the set is a proper subset of the given set.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">proper_superset?</span>(<span class="parameter">set</span>)</h3><p>Returns true if the set is a proper superset of the given set.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">reject!</span></h3><p>Equivalent to Set#delete_if, but returns nil if no changes were
+made.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">replace</span>(<span class="parameter">enum</span>)</h3><p>Replaces the contents of the set with the contents of the given
+enumerable object and returns self.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">select!</span></h3><p>Equivalent to Set#keep_if, but returns nil if no changes were
+made.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">size</span></h3><p>Returns the number of elements.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">subset?</span>(<span class="parameter">set</span>)</h3><p>Returns true if the set is a subset of the given set.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">subtract</span>(<span class="parameter">enum</span>)</h3><p>Deletes every element that appears in the given enumerable object
+and returns self.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">superset?</span>(<span class="parameter">set</span>)</h3><p>Returns true if the set is a superset of the given set.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">taint</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">to_a</span></h3><p>Converts the set to an array.  The order of elements is uncertain.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">untaint</span></h3>
+<p><a href="foo">Show source</a></p></section></section><section class="protected instance"><h2>Protected instance methods</h2><section class="method"><h3><span class="method">flatten_merge</span>(<span class="parameter">set</span>, <span class="parameter">seen</span>)</h3>
+<p><a href="foo">Show source</a></p></section></section></article></body></html>

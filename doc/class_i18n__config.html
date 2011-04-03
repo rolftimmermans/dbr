@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head><title>Class: I18n::Config</title><link href="style.css" rel="stylesheet"></head><body><article><header><h1>I18n::Config</h1></header><section><h2>Overview</h2></section><section><h2>Constructor</h2></section><section class="public instance"><h2>Instance methods</h2><section class="method"><h3><span class="method">available_locales</span></h3><p>Returns an array of locales for which translations are available.
+Unless you explicitely set these through I18n.available_locales=
+the call will be delegated to the backend.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">available_locales=</span>(<span class="parameter">locales</span>)</h3><p>Sets the available locales.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">backend</span></h3><p>Returns the current backend. Defaults to +Backend::Simple+.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">backend=</span>(<span class="parameter">backend</span>)</h3><p>Sets the current backend. Used to set a custom backend.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">default_locale</span></h3><p>Returns the current default locale. Defaults to :&rsquo;en&rsquo;</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">default_locale=</span>(<span class="parameter">locale</span>)</h3><p>Sets the current default locale. Used to set a custom default locale.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">default_separator</span></h3><p>Returns the current default scope separator. Defaults to &lsquo;.&rsquo;</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">default_separator=</span>(<span class="parameter">separator</span>)</h3><p>Sets the current default scope separator.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">exception_handler</span></h3><p>Return the current exception handler. Defaults to :default_exception_handler.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">exception_handler=</span>(<span class="parameter">exception_handler</span>)</h3><p>Sets the exception handler.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">load_path</span></h3><p>Allow clients to register paths providing translation data sources. The
+backend defines acceptable sources.</p>
+
+<p>E.g. the provided SimpleBackend accepts a list of paths to translation
+files which are either named *.rb and contain plain Ruby Hashes or are
+named *.yml and contain YAML data. So for the SimpleBackend clients may
+register translation files like this:
+    I18n.load_path &laquo;&nbsp;&lsquo;path/to/locale/en.yml&rsquo;</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">load_path=</span>(<span class="parameter">load_path</span>)</h3><p>Sets the load path instance. Custom implementations are expected to
+behave like a Ruby Array.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">locale</span></h3><p>The only configuration value that is not global and scoped to thread is :locale.
+It defaults to the default_locale.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">locale=</span>(<span class="parameter">locale</span>)</h3><p>Sets the current locale pseudo-globally, i.e. in the Thread.current hash.</p>
+<p><a href="foo">Show source</a></p></section></section></article></body></html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html><html><head><title>Class: URI::Generic</title><link href="style.css" rel="stylesheet"></head><body><article><header><h1>URI::Generic</h1></header><section><h2>Overview</h2></section><section><h2>Constants</h2></section><section><h2>Constructor</h2></section><section class="public class"><h2>Class methods</h2><section class="method"><h3><span class="method">build</span>(<span class="parameter">args</span>)</h3>
+<p>== Synopsis</p>
+
+<p>See #new</p>
+
+<p>== Description</p>
+
+<p>Creates a new URI::Generic instance from components of URI::Generic
+with check.  Components are: scheme, userinfo, host, port, registry, path,
+opaque, query and fragment. You can provide arguments either by an Array or a Hash.
+See #new for hash keys to use or for order of array items.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">build2</span>(<span class="parameter">args</span>)</h3>
+<p>== Synopsis</p>
+
+<p>See #new</p>
+
+<p>== Description</p>
+
+<p>At first, tries to create a new URI::Generic instance using
+URI::Generic::build. But, if exception URI::InvalidComponentError is raised,
+then it URI::Escape.escape all URI components and tries again.</p>
+
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">component</span></h3>
+<p>Components of the URI in the order.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">default_port</span></h3>
+<p>Returns default port</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">use_registry</span></h3>
+<p>DOC: FIXME!</p>
+<p><a href="foo">Show source</a></p></section></section><section class="public instance"><h2>Instance methods</h2><section class="method"><h3><span class="method">absolute?</span></h3>
+<p>Checks if URI is an absolute one</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">coerce</span>(<span class="parameter">oth</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">component</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">default_port</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">eql?</span>(<span class="parameter">oth</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">fragment</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">fragment=</span>(<span class="parameter">v</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">hash</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">hierarchical?</span></h3>
+<p>Checks if URI has a path</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">host</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">host=</span>(<span class="parameter">v</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">inspect</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">merge</span>(<span class="parameter">oth</span>)</h3>
+<p>== Args</p>
+
+<p><code>oth</code>::
+     URI or String</p>
+
+<p>== Description</p>
+
+<p>Merges two URI&rsquo;s.</p>
+
+<p>== Usage
+     require &lsquo;uri&rsquo;
+     uri = URI.parse(&ldquo;http://my.example.com&rdquo;)
+    p uri.merge(&ldquo;/main.rbx?page=1&rdquo;)
+    # =&gt;  #&lt;URI::HTTP:0x2021f3b0 URL:http://my.example.com/main.rbx?page=1&gt;</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">merge!</span>(<span class="parameter">oth</span>)</h3>
+<p>== Args</p>
+
+<p><code>oth</code>::
+     URI or String</p>
+
+<p>== Description</p>
+
+<p>Destructive form of #merge</p>
+
+<p>== Usage
+     require &lsquo;uri&rsquo;
+     uri = URI.parse(&ldquo;http://my.example.com&rdquo;)
+    uri.merge!(&ldquo;/main.rbx?page=1&rdquo;)
+    p uri
+    # =&gt;  #&lt;URI::HTTP:0x2021f3b0 URL:http://my.example.com/main.rbx?page=1&gt;</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">normalize</span></h3>
+<p>Returns normalized URI</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">normalize!</span></h3>
+<p>Destructive version of #normalize</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">opaque</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">opaque=</span>(<span class="parameter">v</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">parser</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">password</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">password=</span>(<span class="parameter">password</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">path</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">path=</span>(<span class="parameter">v</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">port</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">port=</span>(<span class="parameter">v</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">query</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">query=</span>(<span class="parameter">v</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">registry</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">registry=</span>(<span class="parameter">v</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">relative?</span></h3>
+<p>Checks if URI is relative</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">route_from</span>(<span class="parameter">oth</span>)</h3>
+<p>== Args</p>
+
+<p><code>oth</code>::
+     URI or String</p>
+
+<p>== Description</p>
+
+<p>Calculates relative path from oth to self</p>
+
+<p>== Usage
+     require &lsquo;uri&rsquo;
+     uri = URI.parse(&lsquo;http://my.example.com/main.rbx?page=1&rsquo;)
+    p uri.route_from(&lsquo;http://my.example.com&rsquo;)
+    #=&gt; #&lt;URI::Generic:0x20218858 URL:/main.rbx?page=1&gt;</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">route_to</span>(<span class="parameter">oth</span>)</h3>
+<p>== Args</p>
+
+<p><code>oth</code>::
+     URI or String</p>
+
+<p>== Description</p>
+
+<p>Calculates relative path to oth from self</p>
+
+<p>== Usage
+     require &lsquo;uri&rsquo;
+     uri = URI.parse(&lsquo;http://my.example.com&rsquo;)
+    p uri.route_to(&lsquo;http://my.example.com/main.rbx?page=1&rsquo;)
+    #=&gt; #&lt;URI::Generic:0x2020c2f6 URL:/main.rbx?page=1&gt;</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">scheme</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">scheme=</span>(<span class="parameter">v</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">select</span>(<span class="parameter">components</span>)</h3><p>== Args</p>
+
+<p><code>components</code>::
+     Multiple Symbol arguments defined in URI::HTTP</p>
+
+<p>== Description</p>
+
+<p>Selects specified components from URI</p>
+
+<p>== Usage
+     require &lsquo;uri&rsquo;
+     uri = URI.parse(&lsquo;http://myuser:mypass@my.example.com/test.rbx&rsquo;)
+    p uri.select(:userinfo, :host, :path)
+    # =&gt; [&ldquo;myuser:mypass&rdquo;, &ldquo;my.example.com&rdquo;, &ldquo;/test.rbx&rdquo;]</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">to_s</span></h3>
+<p>Constructs String from URI</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">user</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">user=</span>(<span class="parameter">user</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">userinfo</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">userinfo=</span>(<span class="parameter">userinfo</span>)</h3>
+<p>Sets userinfo, argument is string like &lsquo;name:pass&rsquo;</p>
+<p><a href="foo">Show source</a></p></section></section><section class="protected instance"><h2>Protected instance methods</h2><section class="method"><h3><span class="method">component_ary</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">set_fragment</span>(<span class="parameter">v</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">set_host</span>(<span class="parameter">v</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">set_opaque</span>(<span class="parameter">v</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">set_password</span>(<span class="parameter">v</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">set_path</span>(<span class="parameter">v</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">set_port</span>(<span class="parameter">v</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">set_query</span>(<span class="parameter">v</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">set_registry</span>(<span class="parameter">v</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">set_scheme</span>(<span class="parameter">v</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">set_user</span>(<span class="parameter">v</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">set_userinfo</span>(<span class="parameter">user</span>, <span class="parameter">password</span>)</h3>
+<p><a href="foo">Show source</a></p></section></section></article></body></html>

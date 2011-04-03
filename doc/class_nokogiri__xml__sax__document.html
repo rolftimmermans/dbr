@@ -1,0 +1,44 @@
+<!DOCTYPE html><html><head><title>Class: Nokogiri::XML::SAX::Document</title><link href="style.css" rel="stylesheet"></head><body><article><header><h1>Nokogiri::XML::SAX::Document</h1></header><section><h2>Overview</h2></section><section><h2>Constructor</h2></section><section class="public instance"><h2>Instance methods</h2><section class="method"><h3><span class="method">cdata_block</span>(<span class="parameter">string</span>)</h3>
+<p>Called when cdata blocks are found
+<code>string</code> contains the cdata content</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">characters</span>(<span class="parameter">string</span>)</h3>
+<p>Characters read between a tag.  This method might be called multiple
+times given one contiguous string of characters.</p>
+
+<p><code>string</code> contains the character data</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">comment</span>(<span class="parameter">string</span>)</h3>
+<p>Called when comments are encountered
+<code>string</code> contains the comment data</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">end_document</span></h3>
+<p>Called when document ends parsing</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">end_element</span>(<span class="parameter">name</span>)</h3>
+<p>Called at the end of an element
+<code>name</code> is the tag name</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">end_element_namespace</span>(<span class="parameter">name</span>, <span class="parameter">prefix</span>, <span class="parameter">uri</span>)</h3>
+<p>Called at the end of an element
+<code>name</code> is the element&rsquo;s name
+<code>prefix</code> is the namespace prefix associated with the element
+<code>uri</code> is the associated namespace URI</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">error</span>(<span class="parameter">string</span>)</h3>
+<p>Called on document errors
+<code>string</code> contains the error</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">start_document</span></h3>
+<p>Called when document starts parsing</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">start_element</span>(<span class="parameter">name</span>, <span class="parameter">attrs</span>)</h3>
+<p>Called at the beginning of an element
+* <code>name</code> is the name of the tag
+* <code>attrs</code> are an assoc list of namespaces and attributes, e.g.:
+    [ [&ldquo;xmlns:foo&rdquo;, &ldquo;http://sample.net&rdquo;], [&ldquo;size&rdquo;, &ldquo;large&rdquo;] ]</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">start_element_namespace</span>(<span class="parameter">name</span>, <span class="parameter">attrs</span>, <span class="parameter">prefix</span>, <span class="parameter">uri</span>, <span class="parameter">ns</span>)</h3>
+<p>Called at the beginning of an element
+<code>name</code> is the element name
+<code>attrs</code> is a list of attributes
+<code>prefix</code> is the namespace prefix for the element
+<code>uri</code> is the associated namespace URI
+<code>ns</code> is a hash of namespace prefix:urls associated with the element</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">warning</span>(<span class="parameter">string</span>)</h3>
+<p>Called on document warnings
+<code>string</code> contains the warning</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">xmldecl</span>(<span class="parameter">version</span>, <span class="parameter">encoding</span>, <span class="parameter">standalone</span>)</h3>
+<p>Called when an XML declaration is parsed</p>
+<p><a href="foo">Show source</a></p></section></section></article></body></html>

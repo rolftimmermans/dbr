@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title Class: #{name}
+    link rel="stylesheet" href="style.css"
+
+  body
+    article
+      header
+        h1 = name
+
+      section
+        h2 Overview
+
+      - if constants.any?
+        section
+          h2 Constants
+
+      section
+        h2 Constructor
+
+      - if singleton.public_methods.any?
+        section.public.class
+          h2 Class methods
+          = render singleton.public_methods
+
+      - if singleton.protected_methods.any?
+        section.protected.class
+          h2 Protected class methods
+          = render singleton.protected_methods
+
+      - if public_methods.any?
+        section.public.instance
+          h2 Instance methods
+          = render public_methods
+
+      - if protected_methods.any?
+        section.protected.instance
+          h2 Protected instance methods
+          = render protected_methods

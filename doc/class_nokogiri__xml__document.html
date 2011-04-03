@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><title>Class: Nokogiri::XML::Document</title><link href="style.css" rel="stylesheet"></head><body><article><header><h1>Nokogiri::XML::Document</h1></header><section><h2>Overview</h2></section><section><h2>Constants</h2></section><section><h2>Constructor</h2></section><section class="public class"><h2>Class methods</h2><section class="method"><h3><span class="method">new</span>(<span class="parameter"></span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">parse</span>(<span class="parameter">string_or_io</span>, <span class="parameter">url</span>, <span class="parameter">encoding</span>, <span class="parameter">options</span>, <span class="parameter">block</span>)</h3>
+<p>Parse an XML file.  <code>thing</code> may be a String, or any object that
+responds to <em>read</em> and <em>close</em> such as an IO, or StringIO.
+<code>url</code> is resource where this document is located.  <code>encoding</code> is the
+encoding that should be used when processing the document. <code>options</code>
+is a number that sets options in the parser, such as
+Nokogiri::XML::ParseOptions::RECOVER.  See the constants in
+Nokogiri::XML::ParseOptions.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">read_io</span>(<span class="parameter"></span>, <span class="parameter"></span>, <span class="parameter"></span>, <span class="parameter"></span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">read_memory</span>(<span class="parameter"></span>, <span class="parameter"></span>, <span class="parameter"></span>, <span class="parameter"></span>)</h3>
+<p><a href="foo">Show source</a></p></section></section><section class="public instance"><h2>Instance methods</h2><section class="method"><h3><span class="method">add_child</span>(<span class="parameter">child</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">collect_namespaces</span></h3>
+<p>Recursively get all namespaces from this node and its subtree and
+return them as a hash.</p>
+
+<p>For example, given this document:</p>
+
+<root xmlns:foo="bar">
+    <bar xmlns:hello="world" />
+  </root>
+
+<p>This method will return:</p>
+
+<p>{ &lsquo;xmlns:foo&rsquo; =&gt; &lsquo;bar&rsquo;, &lsquo;xmlns:hello&rsquo; =&gt; &lsquo;world&rsquo; }</p>
+
+<p>WARNING: this method will clobber duplicate names in the keys.
+For example, given this document:</p>
+
+<root xmlns:foo="bar">
+    <bar xmlns:foo="baz" />
+  </root>
+
+<p>The hash returned will look like this: { &lsquo;xmlns:foo&rsquo; =&gt; &lsquo;bar&rsquo; }</p>
+
+<p>Non-prefixed default namespaces (as in &ldquo;xmlns=&rdquo;) are not included
+in the hash.</p>
+
+<p>Note this is a very expensive operation in current implementation, as it
+traverses the entire graph, and also has to bring each node accross the
+libxml bridge into a ruby object.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">create_cdata</span>(<span class="parameter">text</span>)</h3><p>Create a CDATA element containing <code>text</code></p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">create_element</span>(<span class="parameter">name</span>, <span class="parameter">args</span>, <span class="parameter">block</span>)</h3>
+<p>Create an element with <code>name</code>, and optionally setting the content and attributes.</p>
+
+<p>doc.create_element &ldquo;div&rdquo; # &lt;div&gt;&lt;/div&gt;
+  doc.create_element &ldquo;div&rdquo;, :class =&gt; &ldquo;container&rdquo; # &lt;div class='container'&gt;&lt;/div&gt;
+  doc.create_element &ldquo;div&rdquo;, &ldquo;contents&rdquo; # &lt;div&gt;contents&lt;/div&gt;
+  doc.create_element &ldquo;div&rdquo;, &ldquo;contents&rdquo;, :class =&gt; &ldquo;container&rdquo; # &lt;div class='container'&gt;contents&lt;/div&gt;
+  doc.create_element &ldquo;div&rdquo; { |node| node[&lsquo;class&rsquo;] = &ldquo;container&rdquo; } # &lt;div class='container'&gt;&lt;/div&gt;</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">create_entity</span>(<span class="parameter"></span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">create_text_node</span>(<span class="parameter">text</span>, <span class="parameter">block</span>)</h3><p>Create a text node with <code>text</code></p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">decorate</span>(<span class="parameter">node</span>)</h3>
+<p>Apply any decorators to <code>node</code></p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">decorators</span>(<span class="parameter">key</span>)</h3><p>Get the list of decorators given <code>key</code></p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">document</span></h3><p>A reference to <code>self</code></p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">dup</span>(<span class="parameter"></span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">encoding</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">encoding=</span>(<span class="parameter"></span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">errors</span></h3><p>A list of Nokogiri::XML::SyntaxError found when parsing a document</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">errors=</span>(<span class="parameter"></span>)</h3><p>A list of Nokogiri::XML::SyntaxError found when parsing a document</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">fragment</span>(<span class="parameter">tags</span>)</h3>
+<p>Create a Nokogiri::XML::DocumentFragment from <code>tags</code>
+Returns an empty fragment if <code>tags</code> is nil.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">name</span></h3><p>The name of this document.  Always returns &ldquo;document&rdquo;</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">namespaces</span></h3><p>Get the hash of namespaces on the root Nokogiri::XML::Node</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">remove_namespaces!</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">root</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">root=</span>(<span class="parameter"></span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">slop!</span></h3>
+<p>Explore a document with shortcut methods. See Nokogiri::Slop for details.</p>
+
+<p>Note that any nodes that have been instantiated before #slop!
+is called will not be decorated with sloppy behavior. So, if you&rsquo;re in
+irb, the preferred idiom is:</p>
+
+<p>irb&gt; doc = Nokogiri::Slop my_markup</p>
+
+<p>and not</p>
+
+<p>irb&gt; doc = Nokogiri::HTML my_markup
+  &hellip; followed by irb&rsquo;s implicit inspect (and therefore instantiation of every node) &hellip;
+  irb&gt; doc.slop!
+  &hellip; which does absolutely nothing.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">url</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">validate</span></h3>
+<p>Validate this Document against it&rsquo;s DTD.  Returns a list of errors on
+the document or <code>nil</code> when there is no DTD.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">version</span></h3>
+<p><a href="foo">Show source</a></p></section></section></article></body></html>

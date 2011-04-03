@@ -1,0 +1,123 @@
+<!DOCTYPE html><html><head><title>Class: Logger</title><link href="style.css" rel="stylesheet"></head><body><article><header><h1>Logger</h1></header><section><h2>Overview</h2></section><section><h2>Constants</h2></section><section><h2>Constructor</h2></section><section class="public class"><h2>Class methods</h2><section class="method"><h3><span class="method">define_around_helper</span>(<span class="parameter">level</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">silencer</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">silencer=</span>(<span class="parameter">obj</span>)</h3>
+<p><a href="foo">Show source</a></p></section></section><section class="public instance"><h2>Instance methods</h2><section class="method"><h3><span class="method">add</span>(<span class="parameter">severity</span>, <span class="parameter">message</span>, <span class="parameter">progname</span>, <span class="parameter">block</span>)</h3>
+<p>=== Synopsis
+     Logger#add(severity, message = nil, progname = nil) { &hellip; }</p>
+
+<p>=== Args</p>
+
+<p><code>severity</code>::
+    Severity.  Constants are defined in Logger namespace: <code>DEBUG</code>, <code>INFO</code>,
+    <code>WARN</code>, <code>ERROR</code>, <code>FATAL</code>, or <code>UNKNOWN</code>.
+<code>message</code>::
+    The log message.  A String or Exception.
+<code>progname</code>::
+    Program name string.  Can be omitted.  Treated as a message if no <code>message</code> and
+    <code>block</code> are given.
+<code>block</code>::
+    Can be omitted.  Called to get a message string if <code>message</code> is nil.</p>
+
+<p>=== Return</p>
+
+<p><code>true</code> if successful, <code>false</code> otherwise.</p>
+
+<p>When the given severity is not high enough (for this particular logger), log
+no message, and return <code>true</code>.</p>
+
+<p>=== Description</p>
+
+<p>Log a message if the given severity is high enough.  This is the generic
+logging method.  Users will be more inclined to use #debug, #info, #warn,
+#error, and #fatal.</p>
+
+<p><b>Message format</b>: <code>message</code> can be any object, but it has to be
+converted to a String in order to log it.  Generally, <code>inspect</code> is used
+if the given object is not a String.
+A special case is an <code>Exception</code> object, which will be printed in detail,
+including message, class, and backtrace.  See #msg2str for the
+implementation if required.</p>
+
+<p>=== Bugs</p>
+
+<ul>
+  <li>Logfile is not locked.</li>
+  <li>Append open does not need to lock file.</li>
+  <li>But on the OS which supports multi I/O, records possibly be mixed.</li>
+</ul>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">around_debug</span>(<span class="parameter">before_message</span>, <span class="parameter">after_message</span>, <span class="parameter">block</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">around_error</span>(<span class="parameter">before_message</span>, <span class="parameter">after_message</span>, <span class="parameter">block</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">around_fatal</span>(<span class="parameter">before_message</span>, <span class="parameter">after_message</span>, <span class="parameter">block</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">around_info</span>(<span class="parameter">before_message</span>, <span class="parameter">after_message</span>, <span class="parameter">block</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">close</span></h3>
+<p>Close the logging device.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">datetime_format</span></h3><p>Get the logging datetime format. Returns nil if the formatter does not support
+datetime formatting.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">datetime_format=</span>(<span class="parameter">datetime_format</span>)</h3><p>Logging date-time format (string passed to <code>strftime</code>). Ignored if the formatter
+does not respond to datetime_format=.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">debug</span>(<span class="parameter">progname</span>, <span class="parameter">block</span>)</h3>
+<p>Log a <code>DEBUG</code> message.</p>
+
+<p>See #info for more information.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">debug?</span></h3><p>Returns <code>true</code> iff the current severity level allows for the printing of
+<code>DEBUG</code> messages.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">error</span>(<span class="parameter">progname</span>, <span class="parameter">block</span>)</h3>
+<p>Log an <code>ERROR</code> message.</p>
+
+<p>See #info for more information.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">error?</span></h3><p>Returns <code>true</code> iff the current severity level allows for the printing of
+<code>ERROR</code> messages.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">fatal</span>(<span class="parameter">progname</span>, <span class="parameter">block</span>)</h3>
+<p>Log a <code>FATAL</code> message.</p>
+
+<p>See #info for more information.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">fatal?</span></h3><p>Returns <code>true</code> iff the current severity level allows for the printing of
+<code>FATAL</code> messages.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">formatter</span></h3><p>Get the current formatter. The default formatter is a SimpleFormatter which only
+displays the log message</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">formatter=</span>(<span class="parameter"></span>)</h3><p>Logging formatter.  formatter#call is invoked with 4 arguments; severity,
+time, progname and msg for each log.  Bear in mind that time is a Time and
+msg is an Object that user passed and it could not be a String.  It is
+expected to return a logdev#write-able Object.  Default formatter is used
+when no formatter is set.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">info</span>(<span class="parameter">progname</span>, <span class="parameter">block</span>)</h3>
+<p>Log an <code>INFO</code> message.</p>
+
+<p>The message can come either from the <code>progname</code> argument or the <code>block</code>.  If
+both are provided, then the <code>block</code> is used as the message, and <code>progname</code>
+is used as the program name.</p>
+
+<p>=== Examples
+     logger.info(&ldquo;MainApp&rdquo;) { &ldquo;Received connection from #{ip}&rdquo; }
+    # &hellip;
+    logger.info &ldquo;Waiting for input from user&rdquo;
+    # &hellip;
+    logger.info { &ldquo;User typed #{input}&rdquo; }</p>
+
+<p>You&rsquo;ll probably stick to the second form above, unless you want to provide a
+program name (which you can do with <code>Logger#progname=</code> as well).</p>
+
+<p>=== Return</p>
+
+<p>See #add.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">info?</span></h3><p>Returns <code>true</code> iff the current severity level allows for the printing of
+<code>INFO</code> messages.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">level</span></h3><p>Logging severity threshold (e.g. <code>Logger::INFO</code>).</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">level=</span>(<span class="parameter"></span>)</h3><p>Logging severity threshold (e.g. <code>Logger::INFO</code>).</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">progname</span></h3><p>Logging program name.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">progname=</span>(<span class="parameter"></span>)</h3><p>Logging program name.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">silence</span>(<span class="parameter">temporary_level</span>)</h3><p>Silences the logger for the duration of the block.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">silencer</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">silencer=</span>(<span class="parameter">obj</span>)</h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">unknown</span>(<span class="parameter">progname</span>, <span class="parameter">block</span>)</h3>
+<p>Log an <code>UNKNOWN</code> message.  This will be printed no matter what the logger
+level.</p>
+
+<p>See #info for more information.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">warn</span>(<span class="parameter">progname</span>, <span class="parameter">block</span>)</h3>
+<p>Log a <code>WARN</code> message.</p>
+
+<p>See #info for more information.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">warn?</span></h3><p>Returns <code>true</code> iff the current severity level allows for the printing of
+<code>WARN</code> messages.</p>
+<p><a href="foo">Show source</a></p></section></section></article></body></html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html><html><head><title>Class: ActiveSupport::Inflector::Inflections</title><link href="style.css" rel="stylesheet"></head><body><article><header><h1>ActiveSupport::Inflector::Inflections</h1></header><section><h2>Overview</h2></section><section><h2>Constructor</h2></section><section class="public class"><h2>Class methods</h2><section class="method"><h3><span class="method">instance</span></h3>
+<p><a href="foo">Show source</a></p></section></section><section class="public instance"><h2>Instance methods</h2><section class="method"><h3><span class="method">clear</span>(<span class="parameter">scope</span>)</h3><p>Clears the loaded inflections within a given scope (default is <code>:all</code>).
+Give the scope as a symbol of the inflection type, the options are: <code>:plurals</code>,
+<code>:singulars</code>, <code>:uncountables</code>, <code>:humans</code>.</p>
+
+<p>Examples:
+    clear :all
+    clear :plurals</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">human</span>(<span class="parameter">rule</span>, <span class="parameter">replacement</span>)</h3><p>Specifies a humanized form of a string by a regular expression rule or by a string mapping.
+When using a regular expression based replacement, the normal humanize formatting is called after the replacement.
+When a string is used, the human form should be specified as desired (example: &lsquo;The name&rsquo;, not &lsquo;the_name&rsquo;)</p>
+
+<p>Examples:
+    human /_cnt$/i, &lsquo;\1_count&rsquo;
+    human &ldquo;legacy_col_person_name&rdquo;, &ldquo;Name&rdquo;</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">humans</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">irregular</span>(<span class="parameter">singular</span>, <span class="parameter">plural</span>)</h3><p>Specifies a new irregular that applies to both pluralization and singularization at the same time. This can only be used
+for strings, not regular expressions. You simply pass the irregular in singular and plural form.</p>
+
+<p>Examples:
+    irregular &lsquo;octopus&rsquo;, &lsquo;octopi&rsquo;
+    irregular &lsquo;person&rsquo;, &lsquo;people&rsquo;</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">plural</span>(<span class="parameter">rule</span>, <span class="parameter">replacement</span>)</h3><p>Specifies a new pluralization rule and its replacement. The rule can either be a string or a regular expression.
+The replacement should always be a string that may include references to the matched data from the rule.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">plurals</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">singular</span>(<span class="parameter">rule</span>, <span class="parameter">replacement</span>)</h3><p>Specifies a new singularization rule and its replacement. The rule can either be a string or a regular expression.
+The replacement should always be a string that may include references to the matched data from the rule.</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">singulars</span></h3>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">uncountable</span>(<span class="parameter">words</span>)</h3><p>Add uncountable words that shouldn&rsquo;t be attempted inflected.</p>
+
+<p>Examples:
+    uncountable &ldquo;money&rdquo;
+    uncountable &ldquo;money&rdquo;, &ldquo;information&rdquo;
+    uncountable %w( money information rice )</p>
+<p><a href="foo">Show source</a></p></section><section class="method"><h3><span class="method">uncountables</span></h3>
+<p><a href="foo">Show source</a></p></section></section></article></body></html>
